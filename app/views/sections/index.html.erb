@@ -13,16 +13,16 @@
     <% @sections.each do |s| %>
       <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
         <td class="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-          <%= s.movie %>
+          <%= s.movie.title %>
         </td>
         <td class="px-6 py-4">
-          <%= s.room %>
+          <%= s.room.name %>
         </td>
         <td class="px-6 py-4">
-          <%= s.week_day %>
+          <%= I18n.t('date.day_names')[s.week_day].capitalize %>
         </td>
         <td class="px-6 py-4">
-          <%= s.time %>
+          <%= s.time.strftime('%H:%M') %>
         </td>
       </tr>
     <% end %>

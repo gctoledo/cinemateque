@@ -13,10 +13,10 @@ describe 'User visits section creation page' do
       click_on 'Sessões'
     end
     click_on 'Adicionar sessão'
-    select 'Jurassic Park', from: 'section-movie'
-    select 'Sala 01', from: 'section-room'
-    select 'Segunda-feira', from: 'section-day'
-    fill_in 'Horário', with: '18:00'
+    select 'Jurassic Park', from: 'movie_id'
+    select 'Sala 01', from: 'room_id'
+    select 'Segunda-feira', from: 'week_day'
+    fill_in 'Time', with: '18:00'
     click_on 'Criar sessão'
 
     expect(page).to have_content 'Sala 01'
