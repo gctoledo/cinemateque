@@ -7,8 +7,8 @@
 </dl>
 <h2 class="text-4xl font-bold dark:text-white mb-3">Salas</h2>
 <div class="mb-6 grid grid-cols-4 gap-4">
-<% @movie_theater.rooms.each do |room| %>
-  <%= render room %>
-<% end %>
+  <% @movie_theater.rooms.each do |room| %>
+    <%= render room %>
+  <% end %>
 </div>
 <%= link_to 'Adicionar Sala', new_movie_theater_room_path(@movie_theater), class: 'btn-confirm'%>

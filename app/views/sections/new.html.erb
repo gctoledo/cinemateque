@@ -1,3 +1,11 @@
+    <% if @section.errors.any? %>
+  <div class="text-red-600">
+    <% @section.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  </div>
+<% end %>
+
 <%= page_title(t('.title')) %>
 <%= form_with(model: @section) do |f| %>
   <div class="mb-6">
@@ -19,12 +27,13 @@
 
   <div class="mb-6">
     <%= f.label :movie, class: 'form-label' %>
-    <%= select_tag "movie", options_from_collection_for_select(@movies, :id, :title), prompt: "Selecione um filme" %>
+    <%= select_tag :movie_id, options_from_collection_for_select(@movies, :id, :title), prompt: "Selecione um filme" %>
   </div>
 
   <div class="mb-6">
     <%= f.label :room, class: 'form-label' %>
-    <%= select_tag "room", options_from_collection_for_select(@rooms, :id, :name), prompt: "Selecione uma sala" %>
+    <%= select_tag :room_id, options_from_collection_for_select(@rooms, :id, :name), prompt: "Selecione uma sala" %>
   </div>
+
   <%= f.submit 'Criar sessão', class: 'btn-confirm' %>
 <% end %>
