@@ -10,7 +10,8 @@
 <%= form_with(model: @section) do |f| %>
   <div class="mb-6">
     <%= f.label :week_day, class: 'form-label' %>
-    <%= f.select :week_day, options_for_select([['Domingo', 0], ['Segunda-feira', 1], ['Terça-feira', 2], ['Quarta-feira', 3], ['Quinta-feira', 4], ['Sexta-feira', 5], ['Sábado', 6]]), prompt: "Selecione um dia", %>
+    <%= f.select :week_day, options_for_select([['Domingo', 0], ['Segunda-feira', 1], ['Terça-feira', 2], ['Quarta-feira', 3], ['Quinta-feira', 4], ['Sexta-feira', 5], ['Sábado', 6]]), prompt: "Selecione um dia" %>
+
   </div>
 
   <div class="mb-6">

@@ -12,7 +12,7 @@ class SectionsController < ApplicationController
     @section = Section.new(time: section_params[:time], week_day: section_params[:week_day], room_id: params[:room_id], movie_id: params[:movie_id])
 
     if @section.save
-      redirect_to section_path, notice: 'Sessão criado com sucesso.'
+      redirect_to root_path, notice: 'Sessão criado com sucesso.'
     else
       flash.now[:alert] = 'Sessão não foi adicionada.'
       set_movies_rooms
