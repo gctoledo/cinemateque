@@ -1,0 +1,30 @@
+<%= page_title(t('.title')) %>
+<%= form_with(model: @section) do |f| %>
+  <div class="mb-6">
+    <%= f.label :week_day, class: 'form-label' %>
+    <%= f.select :week_day, options_for_select([['Domingo', 0], ['Segunda-feira', 1], ['Terça-feira', 2], ['Quarta-feira', 3], ['Quinta-feira', 4], ['Sexta-feira', 5], ['Sábado', 6]]), prompt: "Selecione um dia" %>
+    <% if @section.errors[:week_day].any? %>
+      <div class="text-red-600">
+        <% @section.errors.full_messages_for(:week_day).each do |message| %>
+          <p><%= message %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-6">
+    <%= f.label :time, class: 'form-label' %>
+    <%= f.time_field :time %>
+  </div>
+
+  <div class="mb-6">
+    <%= f.label :movie, class: 'form-label' %>
+    <%= select_tag "movie", options_from_collection_for_select(@movies, :id, :title), prompt: "Selecione um filme" %>
+  </div>
+
+  <div class="mb-6">
+    <%= f.label :room, class: 'form-label' %>
+    <%= select_tag "room", options_from_collection_for_select(@rooms, :id, :name), prompt: "Selecione uma sala" %>
+  </div>
+  <%= f.submit 'Criar sessão', class: 'btn-confirm' %>
+<% end %>
